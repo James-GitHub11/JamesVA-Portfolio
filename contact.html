@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>James | Contact</title>
+  <style>
+    body { background: linear-gradient(135deg, #0a0f1f, #1f0036); color: #eee; }
+
+    nav { background: linear-gradient(90deg, #0a0f1f, #1a2a6c); padding: 15px 30px; display: flex; gap: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); } 
+
+    nav a { color: #fff; font-weight: bold; text-decoration: none; position: relative; } 
+
+    nav a::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 0%; height: 2px; background: #4dd0e1; transition: width 0.3s ease; }
+
+    nav a:hover::after { width: 100%; }
+
+    .container { max-width: 800px; margin: 40px auto; padding: 20px; }
+
+    h1 { margin-bottom: 10px; }
+
+    .contact-box 
+    {
+        background: #111;
+        border: 2px solid #0f0;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 0 15px rgba(0,255,0,0.3);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .contact-box:hover 
+    {
+        transform: scale(1.02);
+        box-shadow: 0 0 25px rgba(0,255,0,0.6);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #4dd0e1;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      background: #1a1a1a;
+      border: 1px solid #0f0;
+      border-radius: 5px;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #4dd0e1;
+      box-shadow: 0 0 10px rgba(77, 208, 225, 0.5);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    button {
+      padding: 12px 30px;
+      background: #222;
+      color: white;
+      border: 2px solid #0f0;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    button:hover { 
+      background: #0f0;
+      color: #111;
+      box-shadow: 0 0 15px rgba(0,255,0,0.5);
+    }
+
+    .contact-info {
+      margin-top: 30px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .contact-info-item {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .contact-info-item h3 {
+      color: #4dd0e1;
+      margin-bottom: 10px;
+    }
+
+    .contact-info-item p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="container">
+    <h1>Get In Touch</h1>
+    <p>Have a question or want to collaborate? Feel free to reach out!</p>
+
+    <div class="contact-box">
+      <h2>Connect With Me</h2>
+      <p>Feel free to reach out through any of these platforms:</p>
+      
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <h3>📧 Email</h3>
+          <p><a href="mailto:james.vanaelst@gmail.com" style="color: #4dd0e1; text-decoration: none;">james.vanaelst@gmail.com</a></p>
+        </div>
+
+        <div class="contact-info-item">
+          <h3>💼 LinkedIn</h3>
+          <p><a href="https://www.linkedin.com/in/james-van-aelst-386923318" style="color: #4dd0e1; text-decoration: none;" target="_blank">View Profile</a></p>
+        </div>
+
+        <div class="contact-info-item">
+          <h3>🎮 itch.io</h3>
+          <p><a href="https://james-va.itch.io" style="color: #4dd0e1; text-decoration: none;" target="_blank">View Games</a></p>
+        </div>
+
+        <div class="contact-info-item">
+          <h3>💻 GitHub</h3>
+          <p><a href="https://github.com/James-GitHub11" style="color: #4dd0e1; text-decoration: none;" target="_blank">View Projects</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
