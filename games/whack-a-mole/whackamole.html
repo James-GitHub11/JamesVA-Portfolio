@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Play Whack‑a‑Mole</title>
+
+  <style>
+    body { font-family: monospace; background: #111; color: #0f0; margin: 0; }
+    nav { background: #222; padding: 15px; display: flex; gap: 20px; }
+    nav a { color: white; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+
+    #terminal 
+    {
+      background: black;
+      color: #0f0;
+      padding: 20px;
+      margin: 20px;
+      height: 650px;
+      border: 2px solid #0f0;
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative; /* Needed for countdown overlay (so that it will sit on top of the iframe) */
+    }
+
+    
+    #restartBtn 
+    {
+      background:#0f0;
+      color:black;
+      padding:10px 20px;
+      border:none;
+      border-radius:4px;
+      cursor:pointer;
+      margin-left:20px;
+    }
+
+    #countdownOverlay 
+    {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      color: #0f0;
+      font-family: monospace;
+    }
+
+    #countdownBox {text-align: center;}
+
+    #countdownNumber 
+    {
+      font-size: 80px;
+      margin-top: 10px;
+    }
+
+    iframe 
+    {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    #iframe 
+    {
+      width: 100%;
+      height: 100%;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../portfolio.html">Portfolio</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  
+  
+  <div id="terminal">
+    <div id="countdownOverlay"> 
+        <div id="countdownBox"> 
+            <h2>Get Ready</h2> 
+            <div id="countdownNumber">3</div> 
+        </div>
+    </div>
+    <!-- <iframe src="indexMole.html"></iframe> -->
+    <div id="iframe"></div>
+
+  </div>
+
+  
+
+  <button id="restartBtn">Play Again</button>
+  <!-- <button id="restartBtn" style="
+  background:#0f0;
+  color:black;
+  padding:10px 20px;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  margin-left:20px;"
+  >Play Again</button> -->
+
+  <script>
+    // const iframe = document.querySelector("iframe");
+    const iframe = document.getElementById("iframe");
+    const restartBtn = document.getElementById("restartBtn");
+    const overlay = document.getElementById("countdownOverlay");
+    const number = document.getElementById("countdownNumber");
+    
+    let gameStarted = false;
+    function startCountdown()
+    {
+        overlay.style.display = "flex"; number.textContent = "3"; let count = 2; 
+        const countdown = setInterval(() => 
+        { 
+            number.textContent = count; count--; 
+            if (count < 0) 
+            {   clearInterval(countdown); 
+                overlay.style.display = "none"; // Only start the game if it hasn't started yet 
+                if (!gameStarted) 
+                { 
+                    iframe.innerHTML = '<iframe src="indexMole.html" style="width:100%; height:100%; border:none;"></iframe>'; 
+                    gameStarted = true; 
+                } 
+            } 
+        }, 1000); 
+    } 
+
+    restartBtn.addEventListener("click", () => 
+    { // Reset everything 
+        gameStarted = false; 
+        iframe.innerHTML = ""; // remove old game startCountdown(); // show countdown again }); // Start countdown on first load 
+        startCountdown();
+    });
+
+    //start countdown on first load
+    startCountdown();
+
+    // restartBtn.addEventListener("click", () => 
+    // {
+    //     iframe.src = iframe.src; // reloads the game if the button is clicked
+    // });
+
+    // let count = 3;
+    
+    
+    // const countdown = setInterval(() => 
+    // { 
+    //     number.textContent = count; 
+    //     count--; 
+    //     if (count < 0) 
+    //     { 
+    //         clearInterval(countdown); 
+    //         overlay.style.display = "none"; 
+    //         iframe.src = iframe.src; 
+    //         gameStarted = true;
+    //     } 
+    // }, 1000);
+  </script>
+
+
+
+</body>
+</html>
