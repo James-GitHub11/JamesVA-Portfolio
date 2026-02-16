@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>James | Contact</title>
   <style>
-    body { background: linear-gradient(135deg, #0a0f1f, #1f0036); color: #eee; }
+    body { margin: 0; padding: 0; background: linear-gradient(135deg, #0a0f1f, #1f0036); color: #eee; }
 
-    nav { background: linear-gradient(90deg, #0a0f1f, #1a2a6c); padding: 15px 30px; display: flex; gap: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); } 
+    nav { background: #000000; padding: 15px 30px; width: 100%; box-sizing: border-box; display: flex; gap: 30px; box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); border-bottom: 2px solid #00ff00; } 
 
-    nav a { color: #fff; font-weight: bold; text-decoration: none; position: relative; } 
+    nav a { color: #fff; font-weight: bold; text-decoration: none; position: relative; -webkit-text-stroke: 0.3px #00ff00; text-shadow: 0 0 10px rgba(0, 255, 0, 0.8); } 
 
     nav a::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 0%; height: 2px; background: #4dd0e1; transition: width 0.3s ease; }
 
     nav a:hover::after { width: 100%; }
 
-    .container { max-width: 800px; margin: 40px auto; padding: 20px; }
+    .container { max-width: 1000px; margin: 40px auto; padding: 20px; }
 
     h1 { margin-bottom: 10px; }
 
@@ -95,14 +96,14 @@
 
     .contact-info {
       margin-top: 30px;
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 30px;
-      flex-wrap: wrap;
     }
 
     .contact-info-item {
       flex: 1;
-      min-width: 200px;
+      min-width: 160px;
     }
 
     .contact-info-item h3 {
@@ -132,8 +133,52 @@
       text-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
     }
 
+    .contact-info-item:nth-child(5) h3 {
+      color: #00ffff;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    }
+
     .contact-info-item p {
       margin: 5px 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container { max-width: 95%; padding: 15px; }
+      
+      h1 { font-size: 2em; }
+      
+      .contact-info { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      
+      .contact-box { padding: 15px; }
+      
+      nav { padding: 10px 15px; gap: 15px; }
+      
+      nav a { font-size: 0.9em; }
+    }
+
+    @media (max-width: 480px) {
+      nav { flex-direction: column; gap: 0; padding: 0; }
+      
+      nav a { padding: 12px 15px; display: block; border-bottom: 1px solid rgba(0, 255, 0, 0.2); }
+      
+      .container { padding: 10px; margin: 20px auto; }
+      
+      h1 { font-size: 1.5em; }
+      
+      .contact-info { grid-template-columns: 1fr; gap: 15px; }
+      
+      .contact-box { padding: 12px; }
+      
+      .contact-info-item h3 { font-size: 1em; }
+      
+      .contact-info-item p { font-size: 0.95em; }
+      
+      label { font-size: 0.95em; }
+      
+      input, textarea { padding: 10px; font-size: 1em; }
+      
+      button { padding: 10px 20px; font-size: 0.95em; }
     }
   </style>
 </head>
@@ -172,6 +217,11 @@
         <div class="contact-info-item">
           <h3>💻 GitHub</h3>
           <p><a href="https://github.com/James-GitHub11" style="color: #4dd0e1; text-decoration: none;" target="_blank">View Projects</a></p>
+        </div>
+
+        <div class="contact-info-item">
+          <h3>📄 Resume/CV</h3>
+          <p><a href="James-Van-Aelst_Programmer-Intern_CV.pdf" style="color: #4dd0e1; text-decoration: none;" download>Download CV</a></p>
         </div>
       </div>
     </div>
