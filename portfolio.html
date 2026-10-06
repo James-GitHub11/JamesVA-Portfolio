@@ -6,13 +6,13 @@
   <title>James | Portfolio</title>
   <style>
     /* body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; } */
-    body { margin: 0; padding: 0; background: linear-gradient(135deg, #0a0f1f, #1f0036); color: #eee; }
+    body { margin: 0; padding: 0; background: linear-gradient(135deg, #171819, #211c20); color: #eee; }
 
-    nav { background: #000000; padding: 15px 30px; width: 100%; box-sizing: border-box; display: flex; gap: 30px; box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); border-bottom: 2px solid #00ff00; } 
+    nav { background: #000000; padding: 15px 30px; width: 100%; box-sizing: border-box; display: flex; gap: 30px; box-shadow: 0 0 14px rgba(0, 255, 0, 0.2); border-bottom: 2px solid #00ff00; } 
 
-    nav a { color: #fff; font-weight: bold; text-decoration: none; position: relative; -webkit-text-stroke: 0.3px #00ff00; text-shadow: 0 0 10px rgba(0, 255, 0, 0.8); } 
+    nav a { color: #fff; -webkit-text-fill-color: #fff; font-weight: bold; text-decoration: none; position: relative; -webkit-text-stroke: 0.3px #00ff00; text-shadow: 0 0 7px rgba(0, 255, 0, 0.6); }
 
-    nav a::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 0%; height: 2px; background: #4dd0e1; transition: width 0.3s ease; }
+    nav a::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 0%; height: 2px; background: #00ff00; transition: width 0.3s ease; }
 
     nav a:hover::after { width: 100%; }
 
@@ -20,15 +20,15 @@
     nav a { color: white; text-decoration: none; font-weight: bold; }
     nav a:hover { text-decoration: underline; } */
 
-    .container { max-width: 800px; margin: 40px auto; padding: 20px; }
+    .container { max-width: 1100px; box-sizing: border-box; margin: 40px auto; padding: 20px; }
 
-    h1 { margin-bottom: 10px; }
+    h1 { margin-bottom: 10px; font-size: 3em; }
 
     h2 {
       text-transform: uppercase;
       letter-spacing: 1px;
       color: #00ffff;
-      text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+      text-shadow: 0 0 7px rgba(0, 255, 255, 0.6);
     }
 
     /* .game-box { background: white; padding: 20px; border-radius: 8px; } */
@@ -37,25 +37,27 @@
         background: #111;
         border: 2px solid #0f0;
         border-radius: 10px;
-        padding: 20px;
+        padding: 24px;
         margin-bottom: 30px;
-        box-shadow: 0 0 15px rgba(0,255,0,0.3);
+        box-shadow: 0 0 10px rgba(0,255,0,0.2);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        font-size: 1.05rem;
     }
 
     .game-box:hover 
     {
         transform: scale(1.02);
-        box-shadow: 0 0 25px rgba(0,255,0,0.6);
+        box-shadow: 0 0 18px rgba(0,255,0,0.4);
     }
 
     .game-box h2 {
       color: #ff00ff;
-      text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+      text-shadow: 0 0 7px rgba(255, 0, 255, 0.6);
     }
 
     button {
       padding: 10px 20px;
+      font: inherit;
       background: #222;
       color: white;
       border: none;
@@ -66,22 +68,106 @@
     button:hover { background: #444; }
 
     .game-box img {
-      max-width: 70%;
+      max-width: 85%;
       height: auto;
       border-radius: 8px;
       margin: 0 auto 15px;
       display: block;
     }
 
+    .chessmate-media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .chessmate-media-grid img.chessmate-image {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      aspect-ratio: 2 / 1;
+      box-sizing: border-box;
+      border-radius: 8px;
+      background: #090909;
+      margin: 0;
+      object-fit: contain;
+    }
+
+    .chessmate-video-frame {
+      grid-column: 1 / -1;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 2 / 1;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #090909;
+    }
+
+    .chessmate-video-frame video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .chessmate-play-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: grid;
+      place-items: center;
+      width: 68px;
+      aspect-ratio: 1;
+      padding: 0;
+      margin: 0;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      background: rgba(255, 0, 255, 0.8);
+      box-shadow: 0 0 18px rgba(255, 0, 255, 0.35);
+      cursor: pointer;
+    }
+
+    .chessmate-play-overlay::before {
+      content: "";
+      width: 0;
+      height: 0;
+      margin-left: 4px;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-left: 20px solid #fff;
+    }
+
+    .chessmate-play-overlay:hover {
+      background: rgba(255, 0, 255, 0.95);
+    }
+
+    .chessmate-play-overlay:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: 3px;
+    }
+
+    .chessmate-play-overlay[hidden] {
+      display: none;
+    }
+
+    .chessmate-image-placeholder {
+      border: 1px dashed rgba(255, 255, 255, 0.35);
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .container { max-width: 95%; padding: 15px; }
       
-      h1 { font-size: 2em; }
+      h1 { font-size: 2.5em; }
       
       h2 { font-size: 1.2em; }
       
       .game-box { padding: 15px; }
+
+      .chessmate-media-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       
       nav { padding: 10px 15px; gap: 15px; }
       
@@ -95,13 +181,13 @@
       
       .container { padding: 10px; margin: 20px auto; }
       
-      h1 { font-size: 1.5em; }
+      h1 { font-size: 2em; }
       
       h2 { font-size: 1.1em; }
       
       .game-box { padding: 12px; }
-      
-      .game-box p { font-size: 0.95em; }
+
+      .chessmate-media-grid { grid-template-columns: 1fr; }
       
       button { padding: 8px 16px; font-size: 0.95em; }
     }
@@ -118,7 +204,25 @@
   <div class="container">
     <h1>Portfolio</h1>
 
-    <h2>Projects</h2>
+    <h2>Academic Projects</h2>
+
+    <div class="game-box">
+      <h2>ChessMate (3D Multiplayer Chess Game)</h2>
+      <p>
+        School project developed within three-week deadline. I implemented the multiplayer host/join functionality, turn-based gameplay, replicated HUD for chess timers, and replicated chess moves between players. This was a prototype build and had a few unfinished gameplay features, such as castling and checkmate, that were left out due to time constraints. All 3D models in the game (including the chess pieces) are original assets developed by my teammate.
+      </p>
+      <div class="chessmate-media-grid">
+        <img class="chessmate-image" src="GameImages/Portfolio_ChessImage1.png" alt="ChessMate 3D chess game shown from the front">
+        <img class="chessmate-image" src="GameImages/Portfolio_ChessImage2.png" alt="ChessMate 3D chess game shown from an angled view">
+        <div class="chessmate-video-frame">
+          <video controls preload="metadata" aria-label="ChessMate gameplay recording">
+            <source src="GameVideos/PortfolioDemo_ChessGame.mp4" type="video/mp4">
+            Your browser does not support HTML video.
+          </video>
+          <button class="chessmate-play-overlay" type="button" aria-label="Play ChessMate video"></button>
+        </div>
+      </div>
+    </div>
 
     <div class="game-box">
       <h2>Whack‑a‑Mole (Browser-based Arcade Game)</h2>
@@ -153,7 +257,7 @@
     <div class="game-box">
       <h2>Sentiment (Participants' Choice Award & Best Audio Award Winner)</h2>
       <p>
-        A psychological horror game that delves with themes of a dysfunctional family. You play as a little boy trying to take control of a situation that is beyond him.
+        A psychological horror game that delves with themes of a dysfunctional family. You play as a little boy trying to take control of a situation that is beyond him. This game submission at the Behaviour Interactive Game Jam 2026 won us two awards, the Participants' Pick Award and Best Audio Award. I served a generalist role on the team, contributing to the narrative design and to the AI's behavior and VFX, but my main focus was on programming the gameplay and UI skill-checks. 
       </p>
       <img src="GameImages/Sentiment.png" alt="Sentiment">
       <a href="https://marceltaveau.itch.io/sentiment" target="_blank">
@@ -163,5 +267,25 @@
 
   </div>
 
+  <script>
+    const chessmateVideo = document.querySelector(".chessmate-video-frame video");
+    const chessmatePlayButton = document.querySelector(".chessmate-play-overlay");
+
+    chessmatePlayButton.addEventListener("click", () => {
+      chessmateVideo.play().catch(() => {});
+    });
+
+    chessmateVideo.addEventListener("play", () => {
+      chessmatePlayButton.hidden = true;
+    });
+
+    chessmateVideo.addEventListener("pause", () => {
+      chessmatePlayButton.hidden = false;
+    });
+
+    chessmateVideo.addEventListener("ended", () => {
+      chessmatePlayButton.hidden = false;
+    });
+  </script>
 </body>
 </html>

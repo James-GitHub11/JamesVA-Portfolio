@@ -7,13 +7,13 @@
 
   <style>
     /* body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; } */
-    body { margin: 0; padding: 0; background: linear-gradient(135deg, #0a0f1f, #1f0036); color: #eee; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { margin: 0; padding: 0; background: linear-gradient(135deg, #171819, #211c20); color: #eee; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
 
-    nav { background: #000000; padding: 15px 30px; width: 100%; box-sizing: border-box; display: flex; gap: 30px; box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); border-bottom: 2px solid #00ff00; } 
+    nav { background: #000000; padding: 15px 30px; width: 100%; box-sizing: border-box; display: flex; gap: 30px; box-shadow: 0 0 14px rgba(0, 255, 0, 0.2); border-bottom: 2px solid #00ff00; } 
 
-    nav a { color: #fff; font-weight: bold; text-decoration: none; position: relative; -webkit-text-stroke: 0.3px #00ff00; text-shadow: 0 0 10px rgba(0, 255, 0, 0.8); } 
+    nav a { color: #fff; -webkit-text-fill-color: #fff; font-weight: bold; text-decoration: none; position: relative; -webkit-text-stroke: 0.3px #00ff00; text-shadow: 0 0 7px rgba(0, 255, 0, 0.6); }
     
-    nav a::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 0%; height: 2px; background: #4dd0e1; transition: width 0.3s ease; }
+    nav a::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 0%; height: 2px; background: #00ff00; transition: width 0.3s ease; }
 
     nav a:hover::after { width: 100%; }
 
@@ -27,8 +27,8 @@
         margin-bottom: 10px; 
         font-size: 3em; 
         text-align: center; 
-        color: #00ffff;
-        text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        color: #e6f6ff;
+        text-shadow: 0 0 10px rgba(124, 243, 192, 0.35);
         text-transform: uppercase;
         letter-spacing: 2px;
     }
@@ -36,8 +36,8 @@
     .subtitle {
         text-align: center;
         font-size: 1.3em;
-        color: #ff00ff;
-        text-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
+        color: #7cf3c0;
+        text-shadow: 0 0 8px rgba(124, 243, 192, 0.35);
         text-transform: uppercase;
         letter-spacing: 1px;
         margin-bottom: 30px;
@@ -51,14 +51,14 @@
         border-radius: 10px;
         padding: 20px;
         margin-bottom: 30px;
-        box-shadow: 0 0 15px rgba(0,255,0,0.3);
+        box-shadow: 0 0 10px rgba(0,255,0,0.2);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .game-box:hover 
     {
         transform: scale(1.02);
-        box-shadow: 0 0 25px rgba(0,255,0,0.6);
+        box-shadow: 0 0 18px rgba(0,255,0,0.4);
     }
 
     /* Info Blocks */
@@ -95,14 +95,19 @@
     }
 
     .info-block li {
-        padding: 5px 0;
-        display: flex;
-        align-items: center;
+        position: relative;
+        padding: 5px 0 5px 20px;
+    }
+
+    .info-block li > ul {
+        margin: 5px 0 0 20px;
     }
 
     .info-block li:before {
         content: "▸";
-        margin-right: 10px;
+        position: absolute;
+        top: 5px;
+        left: 0;
         font-weight: bold;
     }
 
@@ -110,61 +115,91 @@
     .block-cyan {
         background: rgba(0, 255, 255, 0.1);
         border-color: #00ffff;
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
     }
 
     .block-cyan:hover {
-        box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+        box-shadow: 0 0 18px rgba(0, 255, 255, 0.4);
     }
 
     .block-cyan h2 {
         color: #00ffff;
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        text-shadow: 0 0 7px rgba(0, 255, 255, 0.6);
     }
 
     .block-magenta {
         background: rgba(255, 0, 255, 0.1);
         border-color: #ff00ff;
-        box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+        box-shadow: 0 0 10px rgba(255, 0, 255, 0.2);
     }
 
     .block-magenta:hover {
-        box-shadow: 0 0 25px rgba(255, 0, 255, 0.6);
+        box-shadow: 0 0 18px rgba(255, 0, 255, 0.4);
     }
 
     .block-magenta h2 {
         color: #ff00ff;
-        text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+        text-shadow: 0 0 7px rgba(255, 0, 255, 0.6);
     }
 
     .block-lime {
         background: rgba(0, 255, 0, 0.1);
         border-color: #00ff00;
-        box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
     }
 
     .block-lime:hover {
-        box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);
+        box-shadow: 0 0 18px rgba(0, 255, 0, 0.4);
     }
 
     .block-lime h2 {
         color: #00ff00;
-        text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+        text-shadow: 0 0 7px rgba(0, 255, 0, 0.6);
     }
 
     .block-yellow {
         background: rgba(255, 255, 0, 0.1);
         border-color: #ffff00;
-        box-shadow: 0 0 15px rgba(255, 255, 0, 0.3);
+        box-shadow: 0 0 10px rgba(255, 255, 0, 0.2);
     }
 
     .block-yellow:hover {
-        box-shadow: 0 0 25px rgba(255, 255, 0, 0.6);
+        box-shadow: 0 0 18px rgba(255, 255, 0, 0.4);
     }
 
     .block-yellow h2 {
         color: #ffff00;
-        text-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+        text-shadow: 0 0 7px rgba(255, 255, 0, 0.6);
+    }
+
+    .block-red {
+      background: rgba(255, 51, 51, 0.1);
+      border-color: #ff3333;
+      box-shadow: 0 0 10px rgba(255, 51, 51, 0.2);
+    }
+
+    .block-red:hover {
+      box-shadow: 0 0 18px rgba(255, 51, 51, 0.4);
+    }
+
+    .block-red h2 {
+      color: #ff3333;
+      text-shadow: 0 0 7px rgba(255, 51, 51, 0.6);
+    }
+
+    .block-blue {
+      background: rgba(51, 136, 255, 0.1);
+      border-color: #3388ff;
+      box-shadow: 0 0 10px rgba(51, 136, 255, 0.2);
+    }
+
+    .block-blue:hover {
+      box-shadow: 0 0 18px rgba(51, 136, 255, 0.4);
+    }
+
+    .block-blue h2 {
+      color: #3388ff;
+      text-shadow: 0 0 7px rgba(51, 136, 255, 0.6);
     }
 
     button 
@@ -212,7 +247,7 @@
       
       .info-block h2 { font-size: 1.1em; }
       
-      .info-block li { padding: 4px 0; font-size: 0.95em; }
+      .info-block li { padding: 4px 0 4px 20px; font-size: 0.95em; }
     }
   </style>
 
@@ -236,7 +271,7 @@
 
   <div class="container">
     <h1>James Van Aelst</h1>
-    <p class="subtitle">Computer Science & Video Game Programming</p>
+    <p class="subtitle">Video Game Programmer & Designer</p>
     <div class="info-grid">
       <div class="info-block block-cyan">
         <h2>Programming Skills</h2>
@@ -270,19 +305,35 @@
         </ul>
       </div>
 
+      <div class="info-block block-red">
+        <h2>Experience</h2>
+        <ul>
+          <li>Solo developing a cognitive testing application for Hepato Neuro Lab at CRCHUM.
+            <ul>
+            <li>Using Unreal Engine blueprints and C++</li>
+            <li>Program and design gameplay, UI, data collection and export, API creation and implementation</li>
+            </ul>
+          </li>
+          <li>McGameJam 2026 (Best Gameplay Design award-winner)</li>
+          <li>Behaviour Interactive Game Jam 2026 (Participants' Pick and Best Audio award-winner)</li>
+        </ul>
+      </div>
+
       <div class="info-block block-yellow">
         <h2>About Me</h2>
         <ul>
-          <li>Passionate About Video Games</li>
-          <li>Final year student -- searching for internships or entry level jobs to apply my skills and develop new skills as a programmer</li>
+          <li>Passionate about video games and I enjoy both multiplayer & single-player gaming experiences</li>
+          <li>Recently completed a DEC in Computer Science & Video Game Programming</li>
+          <li>Searching for an entry level job (or internship) where I can apply and develop my skills as a programmer/designer</li>
           <li>Languages: English, French, and Spanish (basic proficiency)</li>
         </ul>
       </div>
 
-      <div class="info-block block-cyan">
+      <div class="info-block block-blue">
         <h2>Additional Skills</h2>
         <ul>
           <li>3D Modeling (Maya)</li>
+          <li>Brainstorming game ideas and narratives for story-driven games</li>
           <li>Strong English Writing Skills (creative & analytical)</li>
           <li>Problem Solving</li>
           <li>Teamwork</li>
