@@ -24,12 +24,31 @@
 
     h1 { margin-bottom: 10px; font-size: 3em; }
 
+    h1.portfolio-title { text-align: center; }
+
     h2 {
       text-transform: uppercase;
       letter-spacing: 1px;
       color: #00ffff;
       text-shadow: 0 0 7px rgba(0, 255, 255, 0.6);
     }
+
+    h2.section-heading { font-size: 2em; }
+
+    .project-section-divider {
+      --divider-fade-start: max(20px, calc(50vw - 530px));
+      position: relative;
+      left: 50%;
+      width: 100vw;
+      height: 2px;
+      margin: 48px 0;
+      transform: translateX(-50%);
+      border: 0;
+      background: linear-gradient(90deg, transparent 0, #00ffff var(--divider-fade-start), #00ffff calc(100% - var(--divider-fade-start)), transparent 100%);
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.45);
+    }
+
+    h1.portfolio-title + .project-section-divider { margin-top: 12px; }
 
     /* .game-box { background: white; padding: 20px; border-radius: 8px; } */
     .game-box 
@@ -73,6 +92,10 @@
       border-radius: 8px;
       margin: 0 auto 15px;
       display: block;
+    }
+
+    .flushyou-cover {
+      width: 85%;
     }
 
     .chessmate-media-grid {
@@ -164,6 +187,12 @@
       h1 { font-size: 2.5em; }
       
       h2 { font-size: 1.2em; }
+
+      h2.section-heading { font-size: 1.75em; }
+
+      .project-section-divider {
+        --divider-fade-start: calc(2.5vw + 15px);
+      }
       
       .game-box { padding: 15px; }
 
@@ -184,6 +213,12 @@
       h1 { font-size: 2em; }
       
       h2 { font-size: 1.1em; }
+
+      h2.section-heading { font-size: 1.5em; }
+
+      .project-section-divider {
+        --divider-fade-start: calc(2.5vw + 10px);
+      }
       
       .game-box { padding: 12px; }
 
@@ -202,9 +237,50 @@
   </nav>
 
   <div class="container">
-    <h1>Portfolio</h1>
+    <h1 class="portfolio-title">Portfolio</h1>
 
-    <h2>Academic Projects</h2>
+    <hr class="project-section-divider">
+
+    <h2 class="section-heading">Game Jams</h2>
+
+    <div class="game-box">
+      <h2>The Cycle — McGameJam 2026 (Best Gameplay Design Award Winner)</h2>
+      <p>
+        At my first game jam, our 8-person team created "The Cycle" in 48 hours and won Best Gameplay Design out of 76 teams. 
+        I contributed to both the game's design and development, serving as the UI/UX programmer and designer. 
+        Inspired by the theme "The Hunt," the game casts players as an owl hunting rabbits in a serene, snowy forest, emphasizing the more beautiful and natural aspects of the hunt.
+      </p>
+      <img src="GameImages/TheCycle.png" alt="The Cycle - McGameJam 2026">
+      <a href="https://time-moth.itch.io/the-cycle" target="_blank">
+        <button>View/Download on itch.io</button>
+      </a>
+    </div>
+
+    <div class="game-box">
+      <h2>Sentiment — Behaviour Interactive Game Jam 2026 (Participants' Choice Award &amp; Best Audio Award Winner)</h2>
+      <p>
+        A psychological horror game that delves with themes of a dysfunctional family. You play as a little boy trying to take control of a situation that is beyond him. This game submission at the Behaviour Interactive Game Jam 2026 won us two awards, the Participants' Pick Award and Best Audio Award. I served a generalist role on the team, contributing to the narrative design and to the AI's behavior and VFX, but my main focus was on programming the gameplay and UI skill-checks. 
+      </p>
+      <img src="GameImages/Sentiment.png" alt="Sentiment">
+      <a href="https://marceltaveau.itch.io/sentiment" target="_blank">
+        <button>View/Download on itch.io</button>
+      </a>
+    </div>
+
+    <div class="game-box">
+      <h2>Flush You — Concordia Game Jam 2026</h2>
+      <p>
+        A 1v1 arcade-style local multiplayer game with constant chaos and fun. With our unique spin on this jam's theme of "orbit", the game throws you into the orbiting swirl of a flushing toilet. You and your playing partner play as small fish whose goal are simply to not be the first one flushed. Collect powerups, avoid falling obstacles, bump your opponent and avoid being pulled into the drain at all costs!
+      </p>
+      <img class="flushyou-cover" src="GameImages/FlushYou_Cover.png" alt="Flush You game cover">
+      <a href="https://antique7.itch.io/flush-you" target="_blank">
+        <button>View/Download on itch.io</button>
+      </a>
+    </div>
+
+    <hr class="project-section-divider">
+
+    <h2 class="section-heading">Academic Projects</h2>
 
     <div class="game-box">
       <h2>ChessMate (3D Multiplayer Chess Game)</h2>
@@ -233,35 +309,10 @@
         <!-- A browser‑based Whack‑a‑Mole arcade game built with HTML, CSS, and JavaScript.
         Fully playable directly inside the website using a custom terminal‑style UI. -->
       </p>
+      <img src="GameImages/Whack-a-mole.png" alt="Whack-a-Mole game">
 
       <a href="games/whack-a-mole/whackamole.html">
         <button>Play Game</button>
-      </a>
-    </div>
-
-    <h2>Game Jams</h2>
-
-    <div class="game-box">
-      <h2>McGameJam 2026 ("Best Gameplay Design" Award Winner)</h2>
-      <p>
-        At my first game jam, our 8-person team created "The Cycle" in 48 hours and won Best Gameplay Design out of 76 teams. 
-        I contributed to both the game's design and development, serving as the UI/UX programmer and designer. 
-        Inspired by the theme "The Hunt," the game casts players as an owl hunting rabbits in a serene, snowy forest, emphasizing the more beautiful and natural aspects of the hunt.
-      </p>
-      <img src="GameImages/TheCycle.png" alt="The Cycle - McGameJam 2026">
-      <a href="https://time-moth.itch.io/the-cycle" target="_blank">
-        <button>View/Download on itch.io</button>
-      </a>
-    </div>
-
-    <div class="game-box">
-      <h2>Sentiment (Participants' Choice Award & Best Audio Award Winner)</h2>
-      <p>
-        A psychological horror game that delves with themes of a dysfunctional family. You play as a little boy trying to take control of a situation that is beyond him. This game submission at the Behaviour Interactive Game Jam 2026 won us two awards, the Participants' Pick Award and Best Audio Award. I served a generalist role on the team, contributing to the narrative design and to the AI's behavior and VFX, but my main focus was on programming the gameplay and UI skill-checks. 
-      </p>
-      <img src="GameImages/Sentiment.png" alt="Sentiment">
-      <a href="https://marceltaveau.itch.io/sentiment" target="_blank">
-        <button>View/Download on itch.io</button>
       </a>
     </div>
 
